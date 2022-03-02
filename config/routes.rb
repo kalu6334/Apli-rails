@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users,
+      controller: {
+        sessions: 'users/sessions',
+        registrations: 'users/registrations'
+      }
+  get '/member-data', to: 'members#show'    
   resources :articles
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
